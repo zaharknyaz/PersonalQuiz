@@ -30,25 +30,25 @@ class ResultViewController: UIViewController {
         // использовать функции высшего порядка map и sorted
         // отдельный метод для поиска результата
         let resultAnimals = answersChosen.compactMap({ $0.animal })
-        print(resultAnimals)
+        //print(resultAnimals)
         
         let resultDog = resultAnimals.filter({ $0 == PersonalQuiz.Animal.dog }).count
-        print(resultDog)
+        //print(resultDog)
         
         let resultCat = resultAnimals.filter({ $0 == PersonalQuiz.Animal.cat }).count
-        print(resultCat)
+        //print(resultCat)
         
         let resultRabbit = resultAnimals.filter({ $0 == PersonalQuiz.Animal.rabbit }).count
-        print(resultRabbit)
+        //print(resultRabbit)
         
         let resultTurtle = resultAnimals.filter({ $0 == PersonalQuiz.Animal.turtle }).count
-        print(resultTurtle)
+        //print(resultTurtle)
         
         let quantityResultAnimals = ["Собака": resultDog, "Кот": resultCat, "Кролик": resultRabbit, "Черепаха": resultTurtle]
         
-        quantityResultAnimals.sorted(by: { $0.value > $1.value })
-        print(quantityResultAnimals)
-        print(quantityResultAnimals.first?.key)
+        quantityResultAnimals.sorted(by: { $0.value < $1.value })
+        //print(quantityResultAnimals)
+        //print(quantityResultAnimals.first?.key)
         
         let resultAnimalKey = quantityResultAnimals.first?.key
         var resultAnimalValue = "";
