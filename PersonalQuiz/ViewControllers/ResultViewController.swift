@@ -44,14 +44,28 @@ class ResultViewController: UIViewController {
         let resultTurtle = resultAnimals.filter({ $0 == PersonalQuiz.Animal.turtle }).count
         print(resultTurtle)
         
-        //dog = "🐶"
-        //cat = "🐱"
-        //rabbit = "🐰"
-        //turtle = "🐢"
+        let quantityResultAnimals = ["Собака": resultDog, "Кот": resultCat, "Кролик": resultRabbit, "Черепаха": resultTurtle]
+        
+        quantityResultAnimals.sorted(by: { $0.value > $1.value })
+        print(quantityResultAnimals)
+        print(quantityResultAnimals.first?.key)
+        
+        let resultAnimalKey = quantityResultAnimals.first?.key
+        var resultAnimalValue = "";
+        
+        if resultAnimalKey == "Собака" {
+            resultAnimalValue = "🐶"
+        } else if resultAnimalKey == "Кот" {
+            resultAnimalValue = "🐱"
+        } else if resultAnimalKey == "Кролик" {
+            resultAnimalValue = "🐰"
+        } else if resultAnimalKey == "Черепаха" {
+            resultAnimalValue = "🐢"
+        }
         
         // 4. Отобразить результаты в соответствии с этим животным
-        quizResultLabel.text = "Вы - 🪲!"
-        quizResultDescriptionLabel.text = "Да, вы жук!"
+        quizResultLabel.text = "Вы - \(resultAnimalValue)!"
+        quizResultDescriptionLabel.text = "Да, вы \(resultAnimalKey!)!"
     }
     
 
