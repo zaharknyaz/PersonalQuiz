@@ -83,6 +83,13 @@ extension QuestionsViewController {
         
         performSegue(withIdentifier: "showResult", sender: nil)
     }
+    
+    // 2. Передать массив с ответами на экран с результатами
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.answersChosen = answersChosen
+    }
+    
 }
 
 // MARK: - Private Methods
