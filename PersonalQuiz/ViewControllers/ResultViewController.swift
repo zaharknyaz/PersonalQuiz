@@ -29,6 +29,29 @@ class ResultViewController: UIViewController {
         // 3. Определить наиболее часто встречающийся тип животного
         // использовать функции высшего порядка map и sorted
         // отдельный метод для поиска результата
+        let resultAnimal = getResultAnimal()
+        
+        // 4. Отобразить результаты в соответствии с этим животным
+        quizResultLabel.text = "Вы - \(resultAnimal.resultAnimalValue)!"
+        quizResultDescriptionLabel.text = "Да, вы \(resultAnimal.resultAnimalKey)!"
+    }
+    
+
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        navigationController?.dismiss(animated: true)
+    }
+    
+    deinit{
+        print("ResultVC has been delocated")
+    }
+    
+}
+
+// MARK: - Private Methods
+extension ResultViewController {
+   
+    private func getResultAnimal() -> (resultAnimalKey: String, resultAnimalValue: String) {
         let resultAnimals = answersChosen.compactMap({ $0.animal })
         //print(resultAnimals)
         
@@ -50,7 +73,7 @@ class ResultViewController: UIViewController {
         //print(quantityResultAnimals)
         //print(quantityResultAnimals.first?.key)
         
-        let resultAnimalKey = quantityResultAnimals.first?.key
+        let resultAnimalKey = quantityResultAnimals.first!.key
         var resultAnimalValue = "";
         
         if resultAnimalKey == "Собака" {
@@ -63,19 +86,8 @@ class ResultViewController: UIViewController {
             resultAnimalValue = "🐢"
         }
         
-        // 4. Отобразить результаты в соответствии с этим животным
-        quizResultLabel.text = "Вы - \(resultAnimalValue)!"
-        quizResultDescriptionLabel.text = "Да, вы \(resultAnimalKey!)!"
-    }
-    
-
-    
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        navigationController?.dismiss(animated: true)
-    }
-    
-    deinit{
-        print("ResultVC has been delocated")
+        return (resultAnimalKey, resultAnimalValue)
+        
     }
     
 }
