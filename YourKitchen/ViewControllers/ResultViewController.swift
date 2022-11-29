@@ -55,16 +55,16 @@ extension ResultViewController {
         let resultAnimals = answersChosen.compactMap({ $0.animal })
         //print(resultAnimals)
         
-        let resultDog = resultAnimals.filter({ $0 == PersonalQuiz.Animal.dog }).count
+        let resultDog = resultAnimals.filter({ $0 == YourKitchen.Animal.dog }).count
         //print(resultDog)
         
-        let resultCat = resultAnimals.filter({ $0 == PersonalQuiz.Animal.cat }).count
+        let resultCat = resultAnimals.filter({ $0 == YourKitchen.Animal.cat }).count
         //print(resultCat)
         
-        let resultRabbit = resultAnimals.filter({ $0 == PersonalQuiz.Animal.rabbit }).count
+        let resultRabbit = resultAnimals.filter({ $0 == YourKitchen.Animal.rabbit }).count
         //print(resultRabbit)
         
-        let resultTurtle = resultAnimals.filter({ $0 == PersonalQuiz.Animal.turtle }).count
+        let resultTurtle = resultAnimals.filter({ $0 == YourKitchen.Animal.turtle }).count
         //print(resultTurtle)
         
         let quantityResultAnimals = ["Собака": resultDog, "Кот": resultCat, "Кролик": resultRabbit, "Черепаха": resultTurtle]
